@@ -13,8 +13,8 @@ $(document).ready(function(){
   	});
 
 	/*--- New Game ---*/
-	$(".new").click(function(event){
-	    targetValue = Math.floor(Math.random() * 100) + 1;
+	$(".new").click(function(){
+	    targetValue = Math.floor(Math.random(event) * 100) + 1;
 		console.log(targetValue);
 	});
 	
@@ -22,11 +22,10 @@ $(document).ready(function(){
 	$(".button").on('click',(function(event){
 		event.preventDefault();
 		
-		var counter = $("count").value;
-		console.log(counter);
+		/*var counter = document.getElementById('count').value;
+		return ++count;*/
 		var input = document.getElementById("userGuess").value;
-	
-		//return counter + 1;
+
   		if (input == targetValue)
 	  		alert("You guessed it!");
 		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
@@ -39,6 +38,3 @@ $(document).ready(function(){
 	
 	
 });
-
-
-//var input = $("myText").value
