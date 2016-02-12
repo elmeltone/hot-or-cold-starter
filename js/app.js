@@ -12,12 +12,29 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-  /*--- New Game ---*/
+	/*--- New Game ---*/
     $(".new").click(function(){
-      var targetValue = Math.floor(Math.random() * 100) + 1;
-      console.log(targetValue);
+    	targetValue = Math.floor(Math.random() * 100) + 1;;
+		//console.log(targetValue);
     });
-
+	
+	/*--- Guess ---*/
+	$("#guessButton").on('click'(function(){
+		var counter = document.getElementById("count").value;
+		var input = document.getElementById("userGuess").value;
+		
+		return counter + 1;
+      	if (input === targetValue)
+		  	alert("You guessed it!");
+		else if (((input > targetValue) && (input - targetValue <= 10)) || (input < targetValue) && (input - targetValue >= -10)
+			alert("Ow! Hot! Try again!");
+		else if (((input > targetValue) && (input - targetValue > 10)) || (input < targetValue) && (input - targetValue < -10)
+			alert("Brrrr! Cold. Try again!");
+	}));
+	
+	
+	
 });
 
 
+//var input = $("myText").value
