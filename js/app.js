@@ -27,12 +27,14 @@ $(document).ready(function(){
 		document.getElementById('count').innerHTML = counter.toString();
 		var input = document.getElementById("userGuess").value;
 
-  		if (input == targetValue)
+		if (input == targetValue)
 	  		alert("You guessed it!");
 		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
 			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').appendTo('#guessList');
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
 			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').appendTo('#guessList');
+		
+		$('#userGuess').val('');
 	
 		/* Guess with Enter button */
 		$('#userGuess').on('keydown',(function(event) {
