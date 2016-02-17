@@ -30,20 +30,19 @@ $(document).ready(function(){
   		if (input == targetValue)
 	  		alert("You guessed it!");
 		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
-			alert("Ow! Hot! Try again!");
+			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').appendTo('#guessList');
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
-			alert("Brrrr! Cold. Try again!");
+			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').appendTo('#guessList');
 	
-	
-	/* Guess with Enter button */
-	$('#userGuess').on('keydown',(function(event) {
-		if(event.keyCode === 13){
-			event.preventDefault();
-			$('.button').click();
-		};
-	}));
+		/* Guess with Enter button */
+		$('#userGuess').on('keydown',(function(event) {
+			if(event.keyCode === 13){
+				event.preventDefault();
+				$('.button').click();
+			};
+		}));
 
-}));
+	}));
 	
 	
 });
