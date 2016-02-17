@@ -42,11 +42,6 @@ $(document).ready(function(){
 			$('#feedback').empty().append("Too high!"), $('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
 		else if ((input - targetValue < 0) && (input - targetValue < -10))
 			$('#feedback').empty().append("Too low!"), $('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
-
-		/*else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
-			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
-		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
-			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');*/
 		
 		$('#userGuess').val('');
 
@@ -54,7 +49,10 @@ $(document).ready(function(){
 
 	/*--- New Game ---*/
 	$(".new").click(function(){
-	    window.location.reload(true);
+		newGame();
+		$('#feedback').empty().append("Make your guess!");
+		$('#count').empty().append("0");
+		$('#guessList').empty('ul');
 	});
 	
 });
