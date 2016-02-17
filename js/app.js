@@ -13,17 +13,18 @@ $(document).ready(function(){
   	});
 
 	/*--- New Game ---*/
-	$(".new").click(function(){
+	$(".new").click(function newGame(){
 	    targetValue = Math.floor(Math.random(event) * 100) + 1;
 		console.log(targetValue);
 	});
 	
 	/*--- Guess ---*/
-	$(".button").on('click',(function(event){
+	$(".button").on('click',(function newGuess(event){
 		event.preventDefault();
 		
-		/*var counter = document.getElementById('count').value;
-		return ++count;*/
+		var counter = parseInt(document.getElementById('count').innerHTML,10);
+		counter = counter+1;
+		document.getElementById('count').innerHTML = counter.toString();
 		var input = document.getElementById("userGuess").value;
 
   		if (input == targetValue)
@@ -32,9 +33,17 @@ $(document).ready(function(){
 			alert("Ow! Hot! Try again!");
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
 			alert("Brrrr! Cold. Try again!");
+	
+	
+	/* Guess with Enter button */
+	$('#userGuess').on('keydown',(function(event) {
+		if(event.keyCode === 13){
+			event.preventDefault();
+			$('.button').click();
+		};
 	}));
 
-
+}));
 	
 	
 });
