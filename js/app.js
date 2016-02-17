@@ -12,7 +12,7 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-
+	/*--- Default Game ---*/
 	function newGame(){
 		    targetValue = Math.floor(Math.random(event) * 100) + 1;
 			console.log(targetValue);
@@ -30,7 +30,7 @@ $(document).ready(function(){
 		var input = document.getElementById("userGuess").value;
 
 		if (input == targetValue)
-	  		alert("You guessed it!");
+	  		$('#feedback').empty().append("You guessed it!");
 		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
 			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
