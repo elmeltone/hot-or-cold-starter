@@ -12,17 +12,19 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
-	/*--- New Game ---*/
-	$(".new").click(function newGame(){
-	    targetValue = Math.floor(Math.random(event) * 100) + 1;
-		console.log(targetValue);
-	});
+
+	function newGame(){
+		    targetValue = Math.floor(Math.random(event) * 100) + 1;
+			console.log(targetValue);
+		};
 	
+		newGame();
+		
 	/*--- Guess ---*/
 	$(".button").on('click',(function newGuess(event){
 		event.preventDefault();
 		
-		var counter = parseInt(document.getElementById('count').innerHTML,10);
+		counter = parseInt(document.getElementById('count').innerHTML,10);
 		counter = counter+1;
 		document.getElementById('count').innerHTML = counter.toString();
 		var input = document.getElementById("userGuess").value;
@@ -35,16 +37,12 @@ $(document).ready(function(){
 			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
 		
 		$('#userGuess').val('');
-	
-		/* Guess with Enter button
-		$('#userGuess').on('keyup',(function(event) {
-			if(event.keyCode === 13){
-				event.preventDefault();
-				$('.button').click();
-			};
-		}));*/
 
 	}));
-	
+
+	/*--- New Game ---*/
+	$(".new").click(function(){
+	    window.location.reload(true);
+	});
 	
 });
