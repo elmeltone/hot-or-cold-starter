@@ -31,12 +31,22 @@ $(document).ready(function(){
 
 		if (input == targetValue)
 	  		$('#feedback').empty().append("You guessed it!"), alert("You guessed it! Nice work! Start a new game!");
-		else if (input < 0 || input > 100)
+		else if (input < 1 || input > 100)
 			$('#feedback').empty().append("That's not right!"), alert("Please choose a number between 1 and 100!");
-		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
+		
+		else if ((input - targetValue > 0) && (input - targetValue <= 10))
+			$('#feedback').empty().append("Too high!"), $('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
+		else if ((input - targetValue < 0) && (input - targetValue >= -10))
+			$('#feedback').empty().append("Too low!"), $('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
+		else if ((input - targetValue > 0) && (input - targetValue > 10))
+			$('#feedback').empty().append("Too high!"), $('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
+		else if ((input - targetValue < 0) && (input - targetValue < -10))
+			$('#feedback').empty().append("Too low!"), $('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
+
+		/*else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
 			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
-			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
+			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');*/
 		
 		$('#userGuess').val('');
 
