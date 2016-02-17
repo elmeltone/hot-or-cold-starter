@@ -30,9 +30,9 @@ $(document).ready(function(){
 		if (input == targetValue)
 	  		alert("You guessed it!");
 		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
-			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').appendTo('#guessList');
+			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
-			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').appendTo('#guessList');
+			$('<li class="guesses">' + input + ' - Brrr! Cold. Try again!</li>').prependTo('#guessList');
 		
 		$('#userGuess').val('');
 	
