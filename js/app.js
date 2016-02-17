@@ -30,7 +30,7 @@ $(document).ready(function(){
 		var input = document.getElementById("userGuess").value;
 
 		if (input == targetValue)
-	  		$('#feedback').empty().append("You guessed it!");
+	  		$('#feedback').empty().append("You guessed it!"), alert("You guessed it! Nice work! Start a new game!");
 		else if (((input > targetValue) && (input - targetValue <= 10)) || ((input < targetValue) && (input - targetValue >= -10)))
 			$('<li class="guesses">' + input + ' - Ow! Hot! Try again!</li>').prependTo('#guessList');
 		else if (((input > targetValue) && (input - targetValue > 10)) || ((input < targetValue) && (input - targetValue < -10)))
