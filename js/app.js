@@ -36,13 +36,13 @@ $(document).ready(function(){
 		
 		$('#userGuess').val('');
 	
-		/* Guess with Enter button */
-		$('#userGuess').on('keydown',(function(event) {
+		/* Guess with Enter button
+		$('#userGuess').on('keyup',(function(event) {
 			if(event.keyCode === 13){
 				event.preventDefault();
 				$('.button').click();
 			};
-		}));
+		}));*/
 
 	}));
 	
